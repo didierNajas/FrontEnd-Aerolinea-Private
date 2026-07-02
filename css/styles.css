@@ -38,7 +38,7 @@ textarea {
 }
 
 .topnav {
-  display: flex;
+  display: flex;flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -81,16 +81,6 @@ textarea {
   gap: 10px;
 }
 
-.user-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  color: #d7e2ff;
-  font-size: 0.92rem;
-  border: 1px solid rgba(255,255,255,0.10);
-}
 
 .topnav-actions a,
 .topnav-actions button {
@@ -147,6 +137,16 @@ textarea {
 
 .contact-main {
   padding: 24px 32px;
+}
+.user-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: #d7e2ff;
+  font-size: 0.92rem;
+  border: 1px solid rgba(255,255,255,0.10);
 }
 
 .brand {
