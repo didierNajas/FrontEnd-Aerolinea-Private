@@ -46,12 +46,29 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   margin: 0;
+  color: white;
 }
 
 .brand p {
   font-size: 0.72rem;
   margin: 0;
   color: var(--muted);
+}
+/* Ocultar subrayados de verificación ortográfica */
+a, h1, h2, p, span {
+  text-decoration: none; /* Elimina subrayados normales */
+}
+
+/* Truco CSS para ocultar el subrayado rojo del navegador */
+a, h1, h2, p, span {
+  /* Nota: Esto no es estándar en todos los navegadores para spellcheck, 
+     pero a veces funciona en Webkit (Chrome/Safari) */
+  -webkit-text-fill-color: inherit; 
+}
+
+/* La forma más efectiva con CSS es definir el idioma correcto en el elemento padre */
+body {
+  lang: es;
 }
 
 .brand-icon {
@@ -63,6 +80,7 @@
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   font-size: 24px;
   cursor: pointer;
+  color: rgb(26, 44, 119)
 }
 
 /* Links de navegación */
