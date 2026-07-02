@@ -9,5 +9,8 @@
 ### 🏨 Alojamientos Seleccionados - Opciones estratégicas con planes flexibles. - Servicios premium en cada destino. 
 ### 🎒 Paquetes Completos - Experiencias integrales (vuelo + hotel + actividades). - Planificación sin preocupaciones. 
 ## 🚀 Requisitos del Sistema - **Java SDK:** Versión 17+ o 21+ (recomendado). - **Spring Boot:** Versión 3.x o superior. - **Base de Datos:** Compatible con JPA/Hibernate (SQL o NoSQL). - **Servidor:** API desplegada en entorno cloud o local seguro. 
-## 🔐 Seguridad - Autenticación segura para el acceso al panel de administración. - Datos de pasajeros protegidos y cifrados. - Control de acceso basado en roles (RBAC). --- Link repositorio del Backend https://github.com/didierNajas/proyectoVuelosSpringBoot.git
+## 🔐 Seguridad - Autenticación segura para el acceso al panel de administración para el ingreso de la cuenta admin las credenciales son:
+Correo: admin@aerolinea.com
+Password: Admin1234
+. - Datos de pasajeros protegidos y cifrados. - Control de acceso basado en roles (RBAC). --- Link repositorio del Backend https://github.com/didierNajas/proyectoVuelosSpringBoot.git
 *Nota: Este documento refleja la integración del backend Spring Boot y el panel de administración en tiempo real.*
