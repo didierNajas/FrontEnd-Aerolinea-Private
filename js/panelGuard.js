@@ -6,3 +6,4 @@ if (!currentUser || currentUser.role !== 'admin') {
   alert('Debes iniciar sesión como administrador para acceder al panel.');
   window.location.href = 'login.html';
 }
+ 
