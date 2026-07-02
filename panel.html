@@ -14,49 +14,103 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
-          <div>
-          <div>
-            <h1>Aerolínea</h1>
-            <p>Panel de control</p>
-          </div>
+    <div class="app-shell panel-shell">
+
+      <!-- Sidebar -->
+      <aside class="sidebar panel-sidebar" id="panelSidebar">
+        <div class="sidebar-header">
+          <a href="index.html" class="brand sidebar-brand">
+            <div class="brand-icon">✈</div>
+            <div>
+              <h1>Aerolínea</h1>
+              <p>Panel de control</p>
+            </div>
+          </a>
+          <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Cerrar menú">✕</button>
         </div>
 
-        <nav class="nav-links">
-          <button class="nav-btn active" data-view="pasajeros">Pasajeros</button>
-          <button class="nav-btn" data-view="vuelos">Vuelos</button>
-          <button class="nav-btn" data-view="reservas">Reservas</button>
-          <button class="nav-btn" data-view="noticias">Comunicaciones</button>
+        <nav class="sidebar-nav-section">
+          <p class="sidebar-section-label">Gestión</p>
+          <button class="nav-btn active" data-view="pasajeros">
+            <span class="nav-icon">👤</span> Pasajeros
+          </button>
+          <button class="nav-btn" data-view="vuelos">
+            <span class="nav-icon">✈</span> Vuelos
+          </button>
+          <button class="nav-btn" data-view="reservas">
+            <span class="nav-icon">🎫</span> Reservas
+          </button>
         </nav>
 
-        <div class="sidebar-card">
-          <h3>Estado del sistema</h3>
-          <p>Conexión con API REST activa</p>
-          <span class="status-pill">Operativo</span>
+        <nav class="sidebar-nav-section">
+          <p class="sidebar-section-label">Configuración</p>
+          <button class="nav-btn" data-view="noticias">
+            <span class="nav-icon">📢</span> Comunicaciones
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-status-card">
+            <span class="sidebar-status-dot"></span>
+            <div>
+              <strong>Sistema operativo</strong>
+              <p>API REST conectada</p>
+            </div>
+          </div>
         </div>
       </aside>
 
-      <main class="main-content">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">Panel administrativo</p>
-            <h2 id="viewTitle">Pasajeros</h2>
+      <!-- Overlay mobile -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- Main content -->
+      <div class="panel-body">
+
+        <!-- Top bar -->
+        <header class="panel-topbar">
+          <div class="panel-topbar-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Abrir menú">☰</button>
+            <div>
+              <p class="eyebrow" id="viewBreadcrumb">Panel administrativo</p>
+              <h2 id="viewTitle">Pasajeros</h2>
+            </div>
           </div>
-          <div class="topbar-actions">
-            <button id="refreshBtn" class="secondary-btn">Actualizar</button>
+          <div class="panel-topbar-right">
+            <button id="refreshBtn" class="secondary-btn">↺ Actualizar</button>
             <button id="logoutBtn" class="ghost-btn">Cerrar sesión</button>
           </div>
         </header>
 
-        <section id="overviewGrid" class="overview-grid"></section>
-        <section id="viewContainer" class="view-container"></section>
-      </main>
+        <!-- Overview stats -->
+        <section id="overviewGrid" class="panel-overview"></section>
+
+        <!-- View area -->
+        <section id="viewContainer" class="panel-view-container"></section>
+
+      </div>
     </div>
 
     <script type="module" src="js/panelGuard.js"></script>
     <script type="module" src="js/controllers/panelController.js"></script>
+    <script>
+      // Sidebar toggle for mobile
+      const sidebar = document.getElementById('panelSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      const toggleBtn = document.getElementById('sidebarToggleBtn');
+      const closeBtn = document.getElementById('sidebarCloseBtn');
+
+      function openSidebar() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+      }
+      function closeSidebar() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+      }
+
+      toggleBtn.addEventListener('click', openSidebar);
+      closeBtn.addEventListener('click', closeSidebar);
+      overlay.addEventListener('click', closeSidebar);
+    </script>
   </body>
 </html>

@@ -20,11 +20,11 @@
           <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
           <div>
             <h1>Aerolínea</h1>
-            <p>Servicios SOFIA</p>
+            <p>Viajes y servicios profesionales</p>
           </div>
         </div>
 
-        <nav class="topnav-links">
+        <nav class="topnav-links" id="mainNav">
           <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
           <a href="vuelos.html" class="nav-pill active">Vuelos</a>
           <a href="paquetes.html" class="nav-pill">Paquetes</a>
@@ -41,6 +41,7 @@
           <a href="registro.html" class="secondary-btn">Registrarse</a>
           <button class="primary-btn">Buscar</button>
         </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">☰</button>
       </header>
 
       <main class="main-content contact-main">
@@ -104,5 +105,16 @@
     </div>
     <script type="module" src="js/authHeader.js"></script>
     <script type="module" src="js/controllers/publicController.js"></script>
+    <script>
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('mainNav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open);
+          toggle.textContent = open ? '✕' : '☰';
+        });
+      }
+    </script>
   </body>
 </html>

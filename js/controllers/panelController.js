@@ -15,6 +15,7 @@ const state = {
 
 const elements = {
   viewTitle: document.getElementById('viewTitle'),
+  viewBreadcrumb: document.getElementById('viewBreadcrumb'),
   viewContainer: document.getElementById('viewContainer'),
   overviewGrid: document.getElementById('overviewGrid'),
   navButtons: Array.from(document.querySelectorAll('.nav-btn')),
@@ -42,7 +43,7 @@ function showOverview(pasajerosCount, vuelosCount) {
     </article>
     <article class="overview-card">
       <span class="overview-label">Estado</span>
-      <strong>En línea</strong>
+      <strong class="status-ok">En línea</strong>
       <small>API operativa</small>
     </article>
   `;
@@ -77,22 +78,27 @@ async function renderCurrentView() {
   switch (state.currentView) {
     case 'pasajeros':
       elements.viewTitle.textContent = 'Pasajeros';
+      if (elements.viewBreadcrumb) elements.viewBreadcrumb.textContent = 'Panel · Gestión';
       await renderPasajerosView(elements.viewContainer, state);
       break;
     case 'vuelos':
       elements.viewTitle.textContent = 'Vuelos';
+      if (elements.viewBreadcrumb) elements.viewBreadcrumb.textContent = 'Panel · Gestión';
       await renderVuelosView(elements.viewContainer, state);
       break;
     case 'reservas':
       elements.viewTitle.textContent = 'Reservas';
+      if (elements.viewBreadcrumb) elements.viewBreadcrumb.textContent = 'Panel · Gestión';
       await renderReservasView(elements.viewContainer, state);
       break;
     case 'noticias':
       elements.viewTitle.textContent = 'Comunicaciones';
+      if (elements.viewBreadcrumb) elements.viewBreadcrumb.textContent = 'Panel · Configuración';
       await renderNoticiasView(elements.viewContainer, state);
       break;
     default:
       elements.viewTitle.textContent = 'Pasajeros';
+      if (elements.viewBreadcrumb) elements.viewBreadcrumb.textContent = 'Panel · Gestión';
       await renderPasajerosView(elements.viewContainer, state);
   }
 }

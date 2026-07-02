@@ -73,7 +73,7 @@ async function cargarPasajeros(table, alert, state, search = '') {
                   <td>${p.email}</td>
                   <td>
                     <button class="small-btn" data-edit="${p.id}">Editar</button>
-                    <button class="ghost-btn" data-delete="${p.id}">Eliminar</button>
+                    <button class="small-btn danger-btn" data-delete="${p.id}">Eliminar</button>
                   </td>
                 </tr>
               `

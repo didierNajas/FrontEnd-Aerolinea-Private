@@ -82,10 +82,10 @@ async function cargarVuelos(table, alert, state, search = '', estado = '') {
                 <tr>
                   <td>${v.origen} → ${v.destino}</td>
                   <td>${v.fechaHora}</td>
-                  <td><span class="badge">${v.estado}</span></td>
+                  <td><span class="badge ${v.estado}">${v.estado.replace('_', ' ')}</span></td>
                   <td>
                     <button class="small-btn" data-edit="${v.id}">Editar</button>
-                    <button class="ghost-btn" data-delete="${v.id}">Eliminar</button>
+                    <button class="small-btn danger-btn" data-delete="${v.id}">Eliminar</button>
                   </td>
                 </tr>
               `
