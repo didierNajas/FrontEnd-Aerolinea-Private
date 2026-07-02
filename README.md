@@ -1,57 +1,13 @@
-# Aerolínea Frontend
-
-Sitio web estático de ejemplo para una aerolínea, diseñado como frontend independiente y listo para desplegar en GitHub Pages.
-
-## Qué incluye
-
-- Páginas públicas de navegación y servicios (`index.html`, `actividades.html`, `paquetes.html`, etc.)
-- Autenticación de usuario simple con inicio de sesión y registro
-- Panel administrativo protegido para gestión de pasajeros, vuelos y reservas
-- Capa de UI modular con `js/core`, `js/controllers`, `js/services` y `js/views`
-- Integración con almacenamiento local para usuarios y sesión
-
-## Cómo ejecutar localmente
-
-1. Abre la carpeta del proyecto en tu editor.
-2. Abre `index.html` directamente en el navegador, o usa un servidor local si prefieres:
-   ```bash
-   npx serve .
-   ```
-3. Si deseas iniciar sesión de administrador, usa:
-   - email: `admin@aerolinea.com`
-   - password: `Admin1234`
-
-## Preparado para GitHub Pages
-
-Este proyecto está configurado para desplegarse desde la rama `main` y servir los archivos estáticos desde la raíz del repositorio.
-
-### Pasos rápidos
-
-1. Crea el repositorio en GitHub.
-2. Conecta el remoto:
-   ```bash
-   git remote add origin https://github.com/TU_USUARIO/TU_REPO.git
-   git branch -M main
-   git push -u origin main
-   ```
-3. En GitHub, habilita GitHub Pages:
-   - Source: `main`
-   - Folder: `/root`
-
-## Estructura del proyecto
-
-- `index.html`: página principal del sitio
-- `css/`: estilos y layout
-- `js/`: scripts
-  - `controllers/`: lógica de página y formularios
-  - `core/`: comportamiento compartido de UI
-  - `services/`: llamadas a API y gestión de datos
-  - `views/`: renderizado de componentes del panel
-- `login.html` / `registro.html`: autenticación de usuario
-- `panel.html`: panel de administración protegido
-
-## Notas importantes
-
-- El proyecto usa almacenamiento local para simular usuarios y sesiones.
-- No requiere backend para navegación básica, pero dispone de servicios preparados para integrar APIs.
-- Si quieres usar un dominio personalizado, agrega un archivo `CNAME` con el dominio al repositorio.
+# Bienvenido - Plataforma de Gestión Aeronáutica 
+## 📖 Descripción General **Bienvenido** es una aerolínea profesional que integra servicios de viaje, gestión de pasajeros y operaciones corporativas en una plataforma centralizada. Además de ofrecer vuelos, alojamientos y paquetes turísticos, la plataforma cuenta con un robusto **Panel de Administración** para el monitoreo en tiempo real y la gestión operativa. 
+## 🛠️ Arquitectura Técnica El sistema se construye sobre una arquitectura moderna y escalable, garantizando alta disponibilidad y seguridad. - **Backend:** Desarrollado con **Java** y el framework **Spring Boot**. - Ofrece una API operativa robusta y de alto rendimiento. - Gestión eficiente de microservicios para vuelos, usuarios y reservas. - **Estado del Sistema:** - **API:** Operativa y estable. - **Conectividad:** En línea. 
+## 📊 Panel de Administración (Dashboard) El panel de control proporciona una visión general instantánea del estado operativo de la aerolínea en tiempo real.
+### Métricas en Tiempo Real | Métrica | Estado Actual | Descripción | | :--- | :--- | :--- | | **Pasajeros** | 3 Registrados | Total de usuarios registrados en el sistema activo. | | **Vuelos** | 2 Programados | Vuelos activos o próximos a partir en la flota. | | **Estado del Sistema** | En línea | Operatividad general confirmada. | | **API** | Operativa | Servicios backend disponibles y respondiendo. | 
+### Funcionalidades del Admin - Monitoreo de **registros de usuarios** (pasajeros). - Gestión y visualización de la **agenda de vuelos**. - Verificación del estado de los **servicios de backend**. - Acceso a soporte corporativo y configuración de ofertas. 
+## ✨ Servicios al Cliente 
+### ✈️ Vuelos Confiables - Búsqueda y reserva con **conexiones eficientes**. - Opciones de asientos mejoradas. - Gestión de vuelos programados en tiempo real. 
+### 🏨 Alojamientos Seleccionados - Opciones estratégicas con planes flexibles. - Servicios premium en cada destino. 
+### 🎒 Paquetes Completos - Experiencias integrales (vuelo + hotel + actividades). - Planificación sin preocupaciones. 
+## 🚀 Requisitos del Sistema - **Java SDK:** Versión 17+ o 21+ (recomendado). - **Spring Boot:** Versión 3.x o superior. - **Base de Datos:** Compatible con JPA/Hibernate (SQL o NoSQL). - **Servidor:** API desplegada en entorno cloud o local seguro. 
+## 🔐 Seguridad - Autenticación segura para el acceso al panel de administración. - Datos de pasajeros protegidos y cifrados. - Control de acceso basado en roles (RBAC). --- Link repositorio del Backend https://github.com/didierNajas/proyectoVuelosSpringBoot.git
+*Nota: Este documento refleja la integración del backend Spring Boot y el panel de administración en tiempo real.*
