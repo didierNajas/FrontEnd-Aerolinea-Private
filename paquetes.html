@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Paquetes - Aerolínea</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topnav">
+        <div class="brand">
+          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
+          <div>
+            <h1>Aerolínea</h1>
+            <p>Servicios SOFIA</p>
+          </div>
+        </div>
+
+        <nav class="topnav-links">
+          <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
+          <a href="vuelos.html" class="nav-pill">Vuelos</a>
+          <a href="paquetes.html" class="nav-pill active">Paquetes</a>
+          <a href="ofertas.html" class="nav-pill">Ofertas</a>
+          <a href="circuitos.html" class="nav-pill">Circuitos</a>
+          <a href="actividades.html" class="nav-pill">Actividades</a>
+          <a href="traslados.html" class="nav-pill">Traslados</a>
+          <a href="asistencias.html" class="nav-pill">Asistencias</a>
+          <a href="contacto.html" class="nav-pill">Contacto</a>
+        </nav>
+
+        <div class="topnav-actions">
+          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
+          <a href="registro.html" class="secondary-btn">Registrarse</a>
+          <button class="primary-btn">Buscar</button>
+        </div>
+      </header>
+
+      <main class="main-content contact-main">
+        <section class="standard-intro">
+          <div>
+            <p class="eyebrow">Inicio</p>
+            <h2>Elige un paquete completo y ahorra tiempo</h2>
+            <p class="muted">Reserva paquetes que integran vuelo, alojamiento y actividades para que tu viaje sea sencillo y profesional.</p>
+          </div>
+          <div class="card-actions">
+            <button class="primary-btn">Ver paquetes</button>
+            <button class="secondary-btn" onclick="window.location.href='contacto.html'">Solicitar cotización</button>
+          </div>
+        </section>
+
+        <section class="hero-panel">
+          <div>
+            <p class="eyebrow">Paquetes</p>
+            <h1>Todo incluido para una experiencia sin complicaciones</h1>
+            <p class="muted">Descubre paquetes que combinan vuelo, alojamiento y actividades especialmente diseñados para tu destino.</p>
+          </div>
+          <div class="hero-visual">
+            <img src="https://placehold.co/800x380?text=Paquetes+Todo+Incluido&bg=1d314f&fg=ffffff" alt="Paquetes todo incluido" />
+          </div>
+        </section>
+
+        <section class="view-container sample-grid">
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Paquete+Familiar&bg=1e2f52&fg=ffffff" alt="Paquete Familiar" />
+            <h3>Paquete familiar</h3>
+            <p>Viaje completo para toda la familia con alojamientos confortables y actividades para niños.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Crear paquete</button>
+              <button class="secondary-btn">Detalles</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Escapada+Urbana&bg=202f50&fg=ffffff" alt="Escapada Urbana" />
+            <h3>Escapada urbana</h3>
+            <p>Experiencias breves con alojamiento céntrico, tours selectos y servicio de transporte incluido.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Reservar</button>
+              <button class="secondary-btn">Disponibilidad</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Tour+Premium&bg=102b4b&fg=ffffff" alt="Tour Premium" />
+            <h3>Tour Premium</h3>
+            <p>Incluye comidas, entradas y traslado para una experiencia sin preocupaciones.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Ver oferta</button>
+              <button class="secondary-btn">Añadir</button>
+            </div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <p>© 2026 Aerolínea Ejemplo. Paquetes completos con asesoría y respaldo.</p>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="js/authHeader.js"></script>
+    <script type="module" src="js/controllers/publicController.js"></script>
+  </body>
+</html>

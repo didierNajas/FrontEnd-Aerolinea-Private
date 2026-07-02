@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contacto - Aerolínea</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topnav">
+        <div class="brand">
+          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
+          <div>
+            <h1>Aerolínea</h1>
+            <p>Servicios SOFIA</p>
+          </div>
+        </div>
+
+        <nav class="topnav-links">
+          <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
+          <a href="vuelos.html" class="nav-pill">Vuelos</a>
+          <a href="paquetes.html" class="nav-pill">Paquetes</a>
+          <a href="ofertas.html" class="nav-pill">Ofertas</a>
+          <a href="circuitos.html" class="nav-pill">Circuitos</a>
+          <a href="actividades.html" class="nav-pill">Actividades</a>
+          <a href="traslados.html" class="nav-pill">Traslados</a>
+          <a href="asistencias.html" class="nav-pill">Asistencias</a>
+          <a href="contacto.html" class="nav-pill active">Contacto</a>
+        </nav>
+
+        <div class="topnav-actions">
+          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
+          <a href="registro.html" class="secondary-btn">Registrarse</a>
+          <button class="primary-btn">Buscar</button>
+        </div>
+      </header>
+
+      <main class="main-content contact-main">
+        <section class="standard-intro">
+          <div>
+            <p class="eyebrow">Inicio</p>
+            <h2>Canal oficial de soporte y seguridad</h2>
+            <p class="muted">Envía solicitudes de atención corporativa, preguntas de seguridad o dudas de viaje. Nuestro equipo revisará tu mensaje con prioridad.</p>
+          </div>
+          <div class="card-actions">
+            <button class="primary-btn">Enviar solicitud</button>
+            <button class="secondary-btn">Políticas de seguridad</button>
+          </div>
+        </section>
+
+        <section class="hero-panel">
+          <div>
+            <p class="eyebrow">Soporte al cliente</p>
+            <h1>Hablemos de tu experiencia de vuelo</h1>
+            <p class="muted">Usa este canal para consultas corporativas, seguridad o servicio al cliente. Nuestro equipo revisará cada solicitud con prioridad y te responderá dentro de las próximas 24-48 horas.</p>
+          </div>
+          <div class="hero-visual">
+            <img src="https://placehold.co/800x380?text=Soporte+al+cliente&bg=142f4c&fg=ffffff" alt="Soporte al cliente" />
+          </div>
+        </section>
+
+        <section class="view-container contact-grid">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3>Datos corporativos</h3>
+                <p class="muted">Canales de atención y datos legales de la aerolínea.</p>
+              </div>
+            </div>
+
+            <div class="info-grid">
+              <div>
+                <p><strong>Razón social</strong></p>
+                <p>Aerolínea Ejemplo S.A.</p>
+              </div>
+              <div>
+                <p><strong>Dirección</strong></p>
+                <p>Av. Transporte 123, Ciudad, País</p>
+              </div>
+              <div>
+                <p><strong>Teléfono</strong></p>
+                <p>+1 (555) 123-4567</p>
+              </div>
+              <div>
+                <p><strong>Email soporte</strong></p>
+                <p>soporte@aerolinea-ejemplo.com</p>
+              </div>
+              <div>
+                <p><strong>Horario</strong></p>
+                <p>Lun–Vie 08:00–18:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3>Seguridad y privacidad</h3>
+                <p class="muted">Nuestro compromiso con la protección de tu información.</p>
+              </div>
+            </div>
+
+            <div class="security-list">
+              <div>
+                <h4>Protección de datos</h4>
+                <p>Tratamos la información personal conforme a estándares internacionales y solo usamos los datos para gestionar tu solicitud.</p>
+              </div>
+              <div>
+                <h4>Canales cifrados</h4>
+                <p>Todas las solicitudes se reciben a través de canales seguros. No respondas a mensajes que soliciten datos sensibles fuera de este formulario.</p>
+              </div>
+              <div>
+                <h4>Auditoría de accesos</h4>
+                <p>El acceso a sistemas se controla mediante roles y registros de auditoría para garantizar transparencia y seguridad.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card contact-form-card">
+            <div class="card-header">
+              <div>
+                <h3>Formulario de contacto</h3>
+                <p class="muted">Completa los campos y envía tu mensaje al equipo de atención.</p>
+              </div>
+            </div>
+
+            <div id="contactAlert"></div>
+
+            <form id="contactForm" class="form-grid">
+              <div class="grid grid-2">
+                <label>Nombre<input name="nombre" required /></label>
+                <label>Email<input name="email" type="email" required /></label>
+              </div>
+              <label>Asunto<input name="asunto" required /></label>
+              <label>Mensaje<textarea name="mensaje" rows="6" required></textarea></label>
+
+              <div class="flex-actions">
+                <button type="submit" class="primary-btn">Enviar</button>
+                <button type="button" id="contactClear" class="secondary-btn">Limpiar</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="view-container sample-grid">
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Solicitud+VIP&bg=132f4c&fg=ffffff" alt="Solicitud VIP" />
+            <h3>Solicitud VIP</h3>
+            <p>Envía una consulta prioritaria para clientes corporativos o pasajeros con tarifa premium.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Enviar solicitud</button>
+              <button class="secondary-btn">Contacto</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Privacidad+de+Datos&bg=142e4b&fg=ffffff" alt="Privacidad de datos" />
+            <h3>Privacidad de datos</h3>
+            <p>Consulta cómo protegemos tu información y el uso que le damos en la gestión de solicitudes.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Ver política</button>
+              <button class="secondary-btn">Seguridad</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Atención+Prioritaria&bg=112a44&fg=ffffff" alt="Atención prioritaria" />
+            <h3>Atención prioritaria</h3>
+            <p>Recibe seguimiento especial para solicitudes de emergencia o cambios críticos de viaje.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Marcar prioridad</button>
+              <button class="secondary-btn">Contactar seguridad</button>
+            </div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <p>© 2026 Aerolínea Ejemplo. Atención, seguridad y viajes con respaldo profesional.</p>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      // Validación y UX similar a la vista SPA
+      const form = document.getElementById('contactForm');
+      const alertEl = document.getElementById('contactAlert');
+      const clearBtn = document.getElementById('contactClear');
+
+      function validate(values) {
+        if (!values.nombre.trim()) return 'El nombre es obligatorio.';
+        if (!values.email.trim()) return 'El email es obligatorio.';
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(values.email)) return 'Formato de email inválido.';
+        if (!values.asunto.trim()) return 'El asunto es obligatorio.';
+        if (!values.mensaje.trim()) return 'El mensaje no puede estar vacío.';
+        return null;
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alertEl.innerHTML = '';
+        const payload = Object.fromEntries(new FormData(form));
+        const err = validate(payload);
+        if (err) { alertEl.innerHTML = `<div class="alert error">${err}</div>`; return; }
+
+        const inbox = JSON.parse(localStorage.getItem('aerolinea-contactos') || '[]');
+        inbox.push({ ...payload, fecha: new Date().toISOString() });
+        localStorage.setItem('aerolinea-contactos', JSON.stringify(inbox));
+
+        alertEl.innerHTML = `<div class="alert success">Gracias, tu mensaje ha sido recibido. Nuestro equipo se comunicará contigo en 24-48 horas.</div>`;
+        form.reset();
+      });
+
+      clearBtn.addEventListener('click', () => { form.reset(); alertEl.innerHTML = ''; });
+    </script>
+    <script type="module" src="js/authHeader.js"></script>
+    <script type="module" src="js/controllers/publicController.js"></script>
+  </body>
+</html>

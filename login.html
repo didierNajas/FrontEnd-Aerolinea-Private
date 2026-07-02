@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Iniciar sesión - Aerolínea</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell auth-page">
+      <div class="auth-card">
+        <div class="brand" style="margin-bottom: 24px; gap: 16px;">
+          <div class="brand-icon">✈</div>
+          <div>
+            <h1>Bienvenido</h1>
+            <p class="muted">Accede a tu cuenta para gestionar reservas y servicios.</p>
+          </div>
+        </div>
+
+        <form id="loginForm" class="form-grid">
+          <label>Correo electrónico<input name="email" type="email" required /></label>
+          <label>Contraseña<input name="password" type="password" required minlength="6" /></label>
+          <div class="flex-actions" style="justify-content: stretch;">
+            <button type="submit" class="primary-btn">Iniciar sesión</button>
+          </div>
+          <div id="loginAlert"></div>
+        </form>
+
+        <p class="auth-alt">
+          ¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+        </p>
+      </div>
+    </div>
+
+    <script type="module" src="js/controllers/authController.js"></script>
+  </body>
+</html>

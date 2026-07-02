@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Asistencias - Aerolínea</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topnav">
+        <div class="brand">
+          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
+          <div>
+            <h1>Aerolínea</h1>
+            <p>Servicios SOFIA</p>
+          </div>
+        </div>
+
+        <nav class="topnav-links">
+          <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
+          <a href="vuelos.html" class="nav-pill">Vuelos</a>
+          <a href="paquetes.html" class="nav-pill">Paquetes</a>
+          <a href="ofertas.html" class="nav-pill">Ofertas</a>
+          <a href="circuitos.html" class="nav-pill">Circuitos</a>
+          <a href="actividades.html" class="nav-pill">Actividades</a>
+          <a href="traslados.html" class="nav-pill">Traslados</a>
+          <a href="asistencias.html" class="nav-pill active">Asistencias</a>
+          <a href="contacto.html" class="nav-pill">Contacto</a>
+        </nav>
+
+        <div class="topnav-actions">
+          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
+          <a href="registro.html" class="secondary-btn">Registrarse</a>
+          <button class="primary-btn">Buscar</button>
+        </div>
+      </header>
+
+      <main class="main-content contact-main">
+        <section class="standard-intro">
+          <div>
+            <p class="eyebrow">Inicio</p>
+            <h2>Accede a asistencia rápida para tu viaje</h2>
+            <p class="muted">Gestiona cambios, cancelaciones, reembolsos y soporte especial con atención prioritaria.</p>
+          </div>
+          <div class="card-actions">
+            <button class="primary-btn">Solicitar asistencia</button>
+            <button class="secondary-btn" onclick="window.location.href='contacto.html'">Hablar con soporte</button>
+          </div>
+        </section>
+
+        <section class="hero-panel">
+          <div>
+            <p class="eyebrow">Asistencias</p>
+            <h1>Soporte y asistencia en cada etapa del viaje</h1>
+            <p class="muted">Ofrecemos asistencia personalizada para cambios, cancelaciones, equipaje y situaciones especiales.</p>
+          </div>
+          <div class="hero-visual">
+            <img src="https://placehold.co/800x380?text=Asistencias+de+viaje&bg=1c2d4a&fg=ffffff" alt="Asistencias de viaje" />
+          </div>
+        </section>
+
+        <section class="view-container sample-grid">
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Cambio+de+Reserva&bg=132f4a&fg=ffffff" alt="Cambio de reserva" />
+            <h3>Cambio de reserva</h3>
+            <p>Gestiona modificaciones de fechas, rutas y servicios con atención prioritaria.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Iniciar</button>
+              <button class="secondary-btn">Condiciones</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Reembolso+Rápido&bg=112b44&fg=ffffff" alt="Reembolso rápido" />
+            <h3>Reembolso rápido</h3>
+            <p>Procesos claros para solicitudes de reembolso en tiempos reducidos.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Reembolsar</button>
+              <button class="secondary-btn">Política</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Asistencia+de+Equipaje&bg=0e2a44&fg=ffffff" alt="Asistencia de equipaje" />
+            <h3>Asistencia de equipaje</h3>
+            <p>Atención para equipaje perdido, demoras y etiquetas especiales.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Solicitar</button>
+              <button class="secondary-btn">Detalles</button>
+            </div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <p>© 2026 Aerolínea Ejemplo. Asistencia con soporte y gestión clara.</p>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="js/authHeader.js"></script>
+    <script type="module" src="js/controllers/publicController.js"></script>
+  </body>
+</html>

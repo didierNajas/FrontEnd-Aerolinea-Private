@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aerolínea - Gestión Operativa</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath d='M12 40l10-8h10l-8 14h8l12-18 10 8 8-4-6-10-18 10-12-10-8 4z' fill='%234f8cff'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topnav">
+        <div class="brand">
+          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
+          <div>
+            <h1>Aerolínea</h1>
+            <p>Viajes y servicios profesionales</p>
+          </div>
+        </div>
+        </nav>
+
+        <div class="topnav-actions">
+          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
+          <a href="registro.html" class="secondary-btn">Registrarse</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="hero-panel">
+          <div>
+            <p class="eyebrow">Bienvenido</p>
+            <h1>Tu aerolínea profesional para viajes y experiencias completas</h1>
+            <p class="muted">Explora servicios aéreos, paquetes, ofertas y soporte corporativo con una experiencia limpia y administrable.</p>
+            <div class="card-actions">
+              <a href="login.html" class="primary-btn">Buscar vuelos</a>
+              <a href="contacto.html" class="secondary-btn">Contactar asistencia</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="https://placehold.co/800x380?text=Aerolínea+Premium&bg=112c4a&fg=ffffff" alt="Aerolínea premium" />
+          </div>
+        </section>
+
+        <section class="view-container sample-grid">
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Alojamientos&bg=132c4a&fg=ffffff" alt="Alojamientos" />
+            <h3>Alojamientos seleccionados</h3>
+            <p>Opciones de hospedaje estratégicas con planes flexibles y servicios premium para cada destino.</p>
+            <div class="card-actions">
+              <a href="alojamientos.html" class="primary-btn">Ver alojamientos</a>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Vuelos&bg=102d47&fg=ffffff" alt="Vuelos" />
+            <h3>Vuelos confiables</h3>
+            <p>Encuentra y reserva vuelos con conexiones eficientes y opciones de asientos mejoradas.</p>
+            <div class="card-actions">
+              <a href="vuelos.html" class="primary-btn">Ver vuelos</a>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Paquetes&bg=0f2844&fg=ffffff" alt="Paquetes" />
+            <h3>Paquetes completos</h3>
+            <p>Viajes integrales con vuelo, hotel y actividades planificadas para una experiencia sin preocupaciones.</p>
+            <div class="card-actions">
+              <a href="paquetes.html" class="primary-btn">Ver paquetes</a>
+            </div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <p>© 2026 Aerolínea Ejemplo. Inicio independiente con navegación superior para todos los servicios.</p>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="js/authHeader.js"></script>
+    <script type="module" src="js/controllers/publicController.js"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ofertas - Aerolínea</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topnav">
+        <div class="brand">
+          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
+          <div>
+            <h1>Aerolínea</h1>
+            <p>Servicios SOFIA</p>
+          </div>
+        </div>
+
+        <nav class="topnav-links">
+          <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
+          <a href="vuelos.html" class="nav-pill">Vuelos</a>
+          <a href="paquetes.html" class="nav-pill">Paquetes</a>
+          <a href="ofertas.html" class="nav-pill active">Ofertas</a>
+          <a href="circuitos.html" class="nav-pill">Circuitos</a>
+          <a href="actividades.html" class="nav-pill">Actividades</a>
+          <a href="traslados.html" class="nav-pill">Traslados</a>
+          <a href="asistencias.html" class="nav-pill">Asistencias</a>
+          <a href="contacto.html" class="nav-pill">Contacto</a>
+        </nav>
+
+        <div class="topnav-actions">
+          <button class="primary-btn">Buscar</button>
+        </div>
+      </header>
+
+      <main class="main-content contact-main">
+        <section class="standard-intro">
+          <div>
+            <p class="eyebrow">Inicio</p>
+            <h2>Aprovecha ofertas especiales antes de tu próximo viaje</h2>
+            <p class="muted">Encuentra promociones exclusivas en vuelos, paquetes y servicios adicionales para mejorar tu experiencia de viaje.</p>
+          </div>
+          <div class="card-actions">
+            <button class="primary-btn" onclick="alert('Cargando ofertas especiales...')">Ver ofertas</button>
+            <button class="secondary-btn" onclick="window.location.href='contacto.html'">Solicitar promoción</button>
+          </div>
+        </section>
+
+        <section class="hero-panel">
+          <div>
+            <p class="eyebrow">Ofertas</p>
+            <h1>Descubre las mejores promociones de viaje</h1>
+            <p class="muted">Accede a ofertas exclusivas y condiciones preferenciales para reservar tus próximos destinos.</p>
+          </div>
+          <div class="hero-visual">
+            <img src="https://placehold.co/800x380?text=Ofertas+de+viaje&bg=1f2c4d&fg=ffffff" alt="Ofertas de viaje" />
+          </div>
+        </section>
+
+        <section class="view-container sample-grid">
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Oferta+Ida+y+Vuelta&bg=1d2c4d&fg=ffffff" alt="Oferta ida y vuelta" />
+            <h3>Oferta ida y vuelta</h3>
+            <p>Tarifas reducidas en viajes de ida y vuelta con condiciones transparentes y flexibles.</p>
+            <div class="card-actions">
+              <button class="primary-btn" onclick="alert('Reservando oferta ida y vuelta...')">Reservar</button>
+              <button class="secondary-btn" onclick="alert('Más detalles de la oferta...')">Detalles</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Descuento+Corporativo&bg=152c48&fg=ffffff" alt="Descuento corporativo" />
+            <h3>Descuento corporativo</h3>
+            <p>Condiciones especiales para viajes de negocios y equipos corporativos.</p>
+            <div class="card-actions">
+              <button class="primary-btn" onclick="alert('Generando descuento corporativo...')">Solicitar</button>
+              <button class="secondary-btn" onclick="alert('Mostrando términos del descuento corporativo...')">Términos</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Upgrade+De+Clase&bg=11283b&fg=ffffff" alt="Upgrade de clase" />
+            <h3>Upgrade de clase</h3>
+            <p>Ofertas especiales para mejoras de cabina y servicios de primera clase en vuelos seleccionados.</p>
+            <div class="card-actions">
+              <button class="primary-btn" onclick="alert('Solicitando upgrade de clase...')">Solicitar</button>
+              <button class="secondary-btn" onclick="alert('Condiciones del upgrade de clase...')">Condiciones</button>
+            </div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <p>© 2026 Aerolínea Ejemplo. Ofertas con claridad y respaldo corporativo.</p>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="js/controllers/publicController.js"></script>
+  </body>
+</html>

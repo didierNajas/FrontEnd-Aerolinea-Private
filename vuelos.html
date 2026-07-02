@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vuelos - Aerolínea</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topnav">
+        <div class="brand">
+          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
+          <div>
+            <h1>Aerolínea</h1>
+            <p>Servicios SOFIA</p>
+          </div>
+        </div>
+
+        <nav class="topnav-links">
+          <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
+          <a href="vuelos.html" class="nav-pill active">Vuelos</a>
+          <a href="paquetes.html" class="nav-pill">Paquetes</a>
+          <a href="ofertas.html" class="nav-pill">Ofertas</a>
+          <a href="circuitos.html" class="nav-pill">Circuitos</a>
+          <a href="actividades.html" class="nav-pill">Actividades</a>
+          <a href="traslados.html" class="nav-pill">Traslados</a>
+          <a href="asistencias.html" class="nav-pill">Asistencias</a>
+          <a href="contacto.html" class="nav-pill">Contacto</a>
+        </nav>
+
+        <div class="topnav-actions">
+          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
+          <a href="registro.html" class="secondary-btn">Registrarse</a>
+          <button class="primary-btn">Buscar</button>
+        </div>
+      </header>
+
+      <main class="main-content contact-main">
+        <section class="standard-intro">
+          <div>
+            <p class="eyebrow">Inicio</p>
+            <h2>Planifica y reserva tus vuelos de forma profesional</h2>
+            <p class="muted">Explora rutas, compara horarios y gestiona tus reservas con herramientas para viajeros corporativos y de ocio.</p>
+          </div>
+          <div class="card-actions">
+            <button class="primary-btn">Buscar vuelos</button>
+            <button class="secondary-btn" onclick="window.location.href='contacto.html'">Asesoría personalizada</button>
+          </div>
+        </section>
+
+        <section class="hero-panel">
+          <div>
+            <p class="eyebrow">Vuelos</p>
+            <h1>Gestiona tus viajes aéreos con claridad</h1>
+            <p class="muted">Consulta disponibilidad, selecciona asientos y programa tus próximos vuelos con las mejores opciones de conexión.</p>
+          </div>
+          <div class="hero-visual">
+            <img src="https://placehold.co/800x380?text=Vuelos+Conectados&bg=1f304d&fg=ffffff" alt="Vuelos conectados" />
+          </div>
+        </section>
+
+        <section class="view-container sample-grid">
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Ruta+Premium&bg=1f3764&fg=ffffff" alt="Ruta premium" />
+            <h3>Ruta premium</h3>
+            <p>Vuelos directos con asiento premium y atención prioritaria en salida y llegada.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Seleccionar</button>
+              <button class="secondary-btn">Ver detalles</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Asientos+Confort&bg=18305e&fg=ffffff" alt="Asientos confort" />
+            <h3>Asientos confort</h3>
+            <p>Reserva asientos con mayor espacio y servicios especiales para una experiencia más cómoda.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Consultar</button>
+              <button class="secondary-btn">Disponibilidad</button>
+            </div>
+          </article>
+          <article class="sample-card">
+            <img src="https://placehold.co/640x360?text=Cambio+Flexible&bg=12293f&fg=ffffff" alt="Cambio flexible" />
+            <h3>Cambio flexible</h3>
+            <p>Fácil gestión de cambios y reprogramaciones para adaptarte a imprevistos de viaje.</p>
+            <div class="card-actions">
+              <button class="primary-btn">Iniciar</button>
+              <button class="secondary-btn">Políticas</button>
+            </div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <p>© 2026 Aerolínea Ejemplo. Reserva tus vuelos con transparencia y respaldo profesional.</p>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="js/authHeader.js"></script>
+    <script type="module" src="js/controllers/publicController.js"></script>
+  </body>
+</html>
