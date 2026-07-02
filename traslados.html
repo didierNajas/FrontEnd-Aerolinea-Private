@@ -7,42 +7,13 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath d='M12 40l10-8h10l-8 14h8l12-18 10 8 8-4-6-10-18 10-12-10-8 4z' fill='%234f8cff'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="app-shell">
-      <header class="topnav">
-        <div class="brand">
-          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
-          <div>
-            <h1>Aerolínea</h1>
-            <p>Viajes y servicios profesionales</p>
-          </div>
-        </div>
 
-        <nav class="topnav-links" id="mainNav">
-          <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
-          <a href="vuelos.html" class="nav-pill">Vuelos</a>
-          <a href="paquetes.html" class="nav-pill">Paquetes</a>
-          <a href="ofertas.html" class="nav-pill">Ofertas</a>
-          <a href="circuitos.html" class="nav-pill">Circuitos</a>
-          <a href="actividades.html" class="nav-pill">Actividades</a>
-          <a href="traslados.html" class="nav-pill active">Traslados</a>
-          <a href="asistencias.html" class="nav-pill">Asistencias</a>
-          <a href="contacto.html" class="nav-pill">Contacto</a>
-        </nav>
-
-        <div class="topnav-actions">
-          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
-          <a href="registro.html" class="secondary-btn">Registrarse</a>
-          <button class="primary-btn">Buscar</button>
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">☰</button>
-      </header>
+      <!-- El navbar se inyecta por navbar.js -->
 
       <main class="main-content contact-main">
         <section class="standard-intro">
@@ -53,7 +24,7 @@
           </div>
           <div class="card-actions">
             <button class="primary-btn">Buscar traslados</button>
-            <button class="secondary-btn" onclick="window.location.href='contacto.html'">Solicitar traslado VIP</button>
+            <a href="contacto.html" class="secondary-btn">Solicitar traslado VIP</a>
           </div>
         </section>
 
@@ -68,14 +39,14 @@
           </div>
         </section>
 
-        <section class="view-container sample-grid">
+        <section class="view-container sample-grid" aria-label="Tipos de traslado">
           <article class="sample-card">
             <img src="https://placehold.co/640x360?text=Traslado+Aeropuerto&bg=152f45&fg=ffffff" alt="Traslado aeropuerto" />
             <h3>Traslado aeropuerto</h3>
             <p>Servicio puerta a puerta con seguimiento de vuelos y asistencia con equipaje.</p>
             <div class="card-actions">
               <button class="primary-btn">Reservar</button>
-              <button class="secondary-btn">Ver info</button>
+              <button class="secondary-btn">Ver información</button>
             </div>
           </article>
           <article class="sample-card">
@@ -84,7 +55,7 @@
             <p>Vehículos de alta gama y atención personalizada desde llegada hasta hotel.</p>
             <div class="card-actions">
               <button class="primary-btn">Solicitar</button>
-              <button class="secondary-btn">Opciones</button>
+              <button class="secondary-btn">Ver opciones</button>
             </div>
           </article>
           <article class="sample-card">
@@ -103,18 +74,12 @@
         </footer>
       </main>
     </div>
+
+    <script type="module">
+      import { injectNavbar } from './js/core/navbar.js';
+      injectNavbar('traslados.html');
+    </script>
     <script type="module" src="js/authHeader.js"></script>
     <script type="module" src="js/controllers/publicController.js"></script>
-    <script>
-      const toggle = document.getElementById('navToggle');
-      const nav = document.getElementById('mainNav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-          const open = nav.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', open);
-          toggle.textContent = open ? '✕' : '☰';
-        });
-      }
-    </script>
   </body>
 </html>

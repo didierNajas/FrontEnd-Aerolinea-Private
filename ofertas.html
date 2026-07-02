@@ -7,42 +7,13 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath d='M12 40l10-8h10l-8 14h8l12-18 10 8 8-4-6-10-18 10-12-10-8 4z' fill='%234f8cff'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="app-shell">
-      <header class="topnav">
-        <div class="brand">
-          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
-          <div>
-            <h1>Aerolínea</h1>
-            <p>Viajes y servicios profesionales</p>
-          </div>
-        </div>
 
-        <nav class="topnav-links" id="mainNav">
-          <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
-          <a href="vuelos.html" class="nav-pill">Vuelos</a>
-          <a href="paquetes.html" class="nav-pill">Paquetes</a>
-          <a href="ofertas.html" class="nav-pill active">Ofertas</a>
-          <a href="circuitos.html" class="nav-pill">Circuitos</a>
-          <a href="actividades.html" class="nav-pill">Actividades</a>
-          <a href="traslados.html" class="nav-pill">Traslados</a>
-          <a href="asistencias.html" class="nav-pill">Asistencias</a>
-          <a href="contacto.html" class="nav-pill">Contacto</a>
-        </nav>
-      
-        <div class="topnav-actions">
-          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
-          <a href="registro.html" class="secondary-btn">Registrarse</a>
-          <button class="primary-btn">Buscar</button>
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">☰</button>
-      </header>
+      <!-- El navbar se inyecta por navbar.js -->
 
       <main class="main-content contact-main">
         <section class="standard-intro">
@@ -52,8 +23,8 @@
             <p class="muted">Encuentra promociones exclusivas en vuelos, paquetes y servicios adicionales para mejorar tu experiencia de viaje.</p>
           </div>
           <div class="card-actions">
-            <button class="primary-btn" onclick="alert('Cargando ofertas especiales...')">Ver ofertas</button>
-            <button class="secondary-btn" onclick="window.location.href='contacto.html'">Solicitar promoción</button>
+            <button class="primary-btn">Ver ofertas</button>
+            <a href="contacto.html" class="secondary-btn">Solicitar promoción</a>
           </div>
         </section>
 
@@ -68,14 +39,14 @@
           </div>
         </section>
 
-        <section class="view-container sample-grid">
+        <section class="view-container sample-grid" aria-label="Promociones destacadas">
           <article class="sample-card">
             <img src="https://placehold.co/640x360?text=Oferta+Ida+y+Vuelta&bg=1d2c4d&fg=ffffff" alt="Oferta ida y vuelta" />
             <h3>Oferta ida y vuelta</h3>
             <p>Tarifas reducidas en viajes de ida y vuelta con condiciones transparentes y flexibles.</p>
             <div class="card-actions">
-              <button class="primary-btn" onclick="alert('Reservando oferta ida y vuelta...')">Reservar</button>
-              <button class="secondary-btn" onclick="alert('Más detalles de la oferta...')">Detalles</button>
+              <button class="primary-btn">Reservar</button>
+              <button class="secondary-btn">Ver detalles</button>
             </div>
           </article>
           <article class="sample-card">
@@ -83,8 +54,8 @@
             <h3>Descuento corporativo</h3>
             <p>Condiciones especiales para viajes de negocios y equipos corporativos.</p>
             <div class="card-actions">
-              <button class="primary-btn" onclick="alert('Generando descuento corporativo...')">Solicitar</button>
-              <button class="secondary-btn" onclick="alert('Mostrando términos del descuento corporativo...')">Términos</button>
+              <button class="primary-btn">Solicitar</button>
+              <button class="secondary-btn">Ver términos</button>
             </div>
           </article>
           <article class="sample-card">
@@ -92,8 +63,8 @@
             <h3>Upgrade de clase</h3>
             <p>Ofertas especiales para mejoras de cabina y servicios de primera clase en vuelos seleccionados.</p>
             <div class="card-actions">
-              <button class="primary-btn" onclick="alert('Solicitando upgrade de clase...')">Solicitar</button>
-              <button class="secondary-btn" onclick="alert('Condiciones del upgrade de clase...')">Condiciones</button>
+              <button class="primary-btn">Solicitar</button>
+              <button class="secondary-btn">Ver condiciones</button>
             </div>
           </article>
         </section>
@@ -103,18 +74,12 @@
         </footer>
       </main>
     </div>
-    <script type="module" src="js/controllers/publicController.js"></script>
-    <script type="module" src="js/authHeader.js"></script>
-    <script>
-      const toggle = document.getElementById('navToggle');
-      const nav = document.getElementById('mainNav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-          const open = nav.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', open);
-          toggle.textContent = open ? '✕' : '☰';
-        });
-      }
+
+    <script type="module">
+      import { injectNavbar } from './js/core/navbar.js';
+      injectNavbar('ofertas.html');
     </script>
+    <script type="module" src="js/authHeader.js"></script>
+    <script type="module" src="js/controllers/publicController.js"></script>
   </body>
 </html>

@@ -1,17 +1,34 @@
+/**
+ * authHeader.js
+ * Inyecta los controles de sesión (login/logout/panel) en `.topnav-actions`.
+ *
+ * Compatible con:
+ *   - Páginas donde navbar.js inyecta el topnav dinámicamente.
+ *   - Páginas con topnav estático en el HTML (index.html).
+ *
+ * Se ejecuta después de que navbar.js haya corrido (ambos son módulos,
+ * el orden de importación en cada página determina el orden de ejecución).
+ */
+
 import { auth } from './auth.js';
 
+// ── Helpers privados ──────────────────────────────────────────────
+
+/** Elimina los links de login/registro estáticos del HTML original. */
 function removeStaticAuthLinks(container) {
-  const staticAuthLinks = container.querySelectorAll('a[href="login.html"], a[href="registro.html"]');
-  staticAuthLinks.forEach((link) => link.remove());
+  container
+    .querySelectorAll('a[href="login.html"], a[href="registro.html"]')
+    .forEach((link) => link.remove());
 }
 
+/** Construye y monta los botones de sesión dentro de `.topnav-actions`. */
 function buildHeaderActions() {
-  const user = auth.getCurrentUser();
   const topnavActions = document.querySelector('.topnav-actions');
   if (!topnavActions) return;
 
   removeStaticAuthLinks(topnavActions);
 
+  // Obtener o crear el contenedor de acciones de auth
   let authActions = topnavActions.querySelector('.auth-actions');
   if (!authActions) {
     authActions = document.createElement('div');
@@ -21,20 +38,16 @@ function buildHeaderActions() {
 
   authActions.innerHTML = '';
 
+  const user = auth.getCurrentUser();
+
   if (user) {
-    const profile = document.createElement('span');
-    profile.className = 'user-chip';
-    profile.textContent = `Bienvenido ${user.name} (${user.role === 'admin' ? 'Admin' : 'Usuario'})`;
+    // Chip con el nombre del usuario
+    const chip = document.createElement('span');
+    chip.className = 'user-chip';
+    chip.textContent = `${user.name} · ${user.role === 'admin' ? 'Admin' : 'Usuario'}`;
+    authActions.appendChild(chip);
 
-    const logout = document.createElement('button');
-    logout.className = 'ghost-btn';
-    logout.textContent = 'Cerrar sesión';
-    logout.addEventListener('click', () => {
-      auth.logout();
-      window.location.reload();
-    });
-
-    authActions.appendChild(profile);
+    // Enlace al panel solo para admins
     if (user.role === 'admin') {
       const adminLink = document.createElement('a');
       adminLink.className = 'secondary-btn';
@@ -42,23 +55,36 @@ function buildHeaderActions() {
       adminLink.textContent = 'Panel admin';
       authActions.appendChild(adminLink);
     }
-    authActions.appendChild(logout);
+
+    // Botón de cierre de sesión
+    const logoutBtn = document.createElement('button');
+    logoutBtn.className = 'ghost-btn';
+    logoutBtn.textContent = 'Cerrar sesión';
+    logoutBtn.addEventListener('click', () => {
+      auth.logout();
+      window.location.reload();
+    });
+    authActions.appendChild(logoutBtn);
+
     return;
   }
 
-  const login = document.createElement('a');
-  login.href = 'login.html';
-  login.className = 'ghost-btn';
-  login.textContent = 'Iniciar sesión';
+  // Usuario no autenticado: mostrar login y registro
+  const loginLink = document.createElement('a');
+  loginLink.href = 'login.html';
+  loginLink.className = 'ghost-btn';
+  loginLink.textContent = 'Iniciar sesión';
 
-  const register = document.createElement('a');
-  register.href = 'registro.html';
-  register.className = 'secondary-btn';
-  register.textContent = 'Registrarse';
+  const registerLink = document.createElement('a');
+  registerLink.href = 'registro.html';
+  registerLink.className = 'secondary-btn';
+  registerLink.textContent = 'Registrarse';
 
-  authActions.appendChild(login);
-  authActions.appendChild(register);
+  authActions.appendChild(loginLink);
+  authActions.appendChild(registerLink);
 }
+
+// ── Inicialización ────────────────────────────────────────────────
 
 auth.initialize();
 buildHeaderActions();

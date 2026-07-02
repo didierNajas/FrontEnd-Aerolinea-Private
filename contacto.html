@@ -7,41 +7,13 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath d='M12 40l10-8h10l-8 14h8l12-18 10 8 8-4-6-10-18 10-12-10-8 4z' fill='%234f8cff'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="app-shell">
-      <header class="topnav">
-        <div class="brand">
-          <div class="brand-icon" onclick="window.location.href='index.html'">✈</div>
-          <div>
-            <h1>Aerolínea</h1>
-            <p>Viajes y servicios profesionales</p>
-          </div>
-        </div>
 
-        <nav class="topnav-links">
-          <a href="alojamientos.html" class="nav-pill">Alojamientos</a>
-          <a href="vuelos.html" class="nav-pill">Vuelos</a>
-          <a href="paquetes.html" class="nav-pill">Paquetes</a>
-          <a href="ofertas.html" class="nav-pill">Ofertas</a>
-          <a href="circuitos.html" class="nav-pill">Circuitos</a>
-          <a href="actividades.html" class="nav-pill">Actividades</a>
-          <a href="traslados.html" class="nav-pill">Traslados</a>
-          <a href="asistencias.html" class="nav-pill">Asistencias</a>
-          <a href="contacto.html" class="nav-pill active">Contacto</a>
-        </nav>
-
-        <div class="topnav-actions">
-          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
-          <a href="registro.html" class="secondary-btn">Registrarse</a>
-          <button class="primary-btn">Buscar</button>
-        </div>
-      </header>
+      <!-- El navbar se inyecta por navbar.js -->
 
       <main class="main-content contact-main">
         <section class="standard-intro">
@@ -52,7 +24,7 @@
           </div>
           <div class="card-actions">
             <button class="primary-btn">Enviar solicitud</button>
-            <button class="secondary-btn">Políticas de seguridad</button>
+            <button class="secondary-btn">Ver política de seguridad</button>
           </div>
         </section>
 
@@ -60,7 +32,7 @@
           <div>
             <p class="eyebrow">Soporte al cliente</p>
             <h1>Hablemos de tu experiencia de vuelo</h1>
-            <p class="muted">Usa este canal para consultas corporativas, seguridad o servicio al cliente. Nuestro equipo revisará cada solicitud con prioridad y te responderá dentro de las próximas 24-48 horas.</p>
+            <p class="muted">Usa este canal para consultas corporativas, seguridad o servicio al cliente. Nuestro equipo revisará cada solicitud con prioridad y te responderá dentro de las próximas 24–48 horas.</p>
           </div>
           <div class="hero-visual">
             <img src="https://placehold.co/800x380?text=Soporte+al+cliente&bg=142f4c&fg=ffffff" alt="Soporte al cliente" />
@@ -68,6 +40,7 @@
         </section>
 
         <section class="view-container contact-grid">
+          <!-- Datos corporativos -->
           <div class="card">
             <div class="card-header">
               <div>
@@ -75,31 +48,16 @@
                 <p class="muted">Canales de atención y datos legales de la aerolínea.</p>
               </div>
             </div>
-
             <div class="info-grid">
-              <div>
-                <p><strong>Razón social</strong></p>
-                <p>Aerolínea Ejemplo S.A.</p>
-              </div>
-              <div>
-                <p><strong>Dirección</strong></p>
-                <p>Av. Transporte 123, Ciudad, País</p>
-              </div>
-              <div>
-                <p><strong>Teléfono</strong></p>
-                <p>+1 (555) 123-4567</p>
-              </div>
-              <div>
-                <p><strong>Email soporte</strong></p>
-                <p>soporte@aerolinea-ejemplo.com</p>
-              </div>
-              <div>
-                <p><strong>Horario</strong></p>
-                <p>Lun–Vie 08:00–18:00</p>
-              </div>
+              <div><p><strong>Razón social</strong></p><p>Aerolínea Ejemplo S.A.</p></div>
+              <div><p><strong>Dirección</strong></p><p>Av. Transporte 123, Ciudad, País</p></div>
+              <div><p><strong>Teléfono</strong></p><p>+1 (555) 123-4567</p></div>
+              <div><p><strong>Email soporte</strong></p><p>soporte@aerolinea-ejemplo.com</p></div>
+              <div><p><strong>Horario</strong></p><p>Lun–Vie 08:00–18:00</p></div>
             </div>
           </div>
 
+          <!-- Seguridad y privacidad -->
           <div class="card">
             <div class="card-header">
               <div>
@@ -107,7 +65,6 @@
                 <p class="muted">Nuestro compromiso con la protección de tu información.</p>
               </div>
             </div>
-
             <div class="security-list">
               <div>
                 <h4>Protección de datos</h4>
@@ -124,33 +81,16 @@
             </div>
           </div>
 
-          <div class="card contact-form-card">
-            <div class="card-header">
-              <div>
-                <h3>Formulario de contacto</h3>
-                <p class="muted">Completa los campos y envía tu mensaje al equipo de atención.</p>
-              </div>
-            </div>
-
-            <div id="contactAlert"></div>
-
-            <form id="contactForm" class="form-grid">
-              <div class="grid grid-2">
-                <label>Nombre<input name="nombre" required /></label>
-                <label>Email<input name="email" type="email" required /></label>
-              </div>
-              <label>Asunto<input name="asunto" required /></label>
-              <label>Mensaje<textarea name="mensaje" rows="6" required></textarea></label>
-
-              <div class="flex-actions">
-                <button type="submit" class="primary-btn">Enviar</button>
-                <button type="button" id="contactClear" class="secondary-btn">Limpiar</button>
-              </div>
-            </form>
+          <!-- Formulario de contacto — la lógica la monta contactoController.js -->
+          <div class="card contact-form-card" id="contactoFormCard">
+            <!--
+              El formulario se renderiza dinámicamente por contactoController.js
+              para mantener toda la lógica de validación y localStorage en el módulo JS.
+            -->
           </div>
         </section>
 
-        <section class="view-container sample-grid">
+        <section class="view-container sample-grid" aria-label="Servicios de soporte">
           <article class="sample-card">
             <img src="https://placehold.co/640x360?text=Solicitud+VIP&bg=132f4c&fg=ffffff" alt="Solicitud VIP" />
             <h3>Solicitud VIP</h3>
@@ -175,7 +115,7 @@
             <p>Recibe seguimiento especial para solicitudes de emergencia o cambios críticos de viaje.</p>
             <div class="card-actions">
               <button class="primary-btn">Marcar prioridad</button>
-              <button class="secondary-btn">Contactar seguridad</button>
+              <button class="secondary-btn">Contactar soporte</button>
             </div>
           </article>
         </section>
@@ -186,39 +126,12 @@
       </main>
     </div>
 
-    <script>
-      // Validación y UX similar a la vista SPA
-      const form = document.getElementById('contactForm');
-      const alertEl = document.getElementById('contactAlert');
-      const clearBtn = document.getElementById('contactClear');
-
-      function validate(values) {
-        if (!values.nombre.trim()) return 'El nombre es obligatorio.';
-        if (!values.email.trim()) return 'El email es obligatorio.';
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(values.email)) return 'Formato de email inválido.';
-        if (!values.asunto.trim()) return 'El asunto es obligatorio.';
-        if (!values.mensaje.trim()) return 'El mensaje no puede estar vacío.';
-        return null;
-      }
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alertEl.innerHTML = '';
-        const payload = Object.fromEntries(new FormData(form));
-        const err = validate(payload);
-        if (err) { alertEl.innerHTML = `<div class="alert error">${err}</div>`; return; }
-
-        const inbox = JSON.parse(localStorage.getItem('aerolinea-contactos') || '[]');
-        inbox.push({ ...payload, fecha: new Date().toISOString() });
-        localStorage.setItem('aerolinea-contactos', JSON.stringify(inbox));
-
-        alertEl.innerHTML = `<div class="alert success">Gracias, tu mensaje ha sido recibido. Nuestro equipo se comunicará contigo en 24-48 horas.</div>`;
-        form.reset();
-      });
-
-      clearBtn.addEventListener('click', () => { form.reset(); alertEl.innerHTML = ''; });
+    <script type="module">
+      import { injectNavbar } from './js/core/navbar.js';
+      injectNavbar('contacto.html');
     </script>
     <script type="module" src="js/authHeader.js"></script>
+    <script type="module" src="js/controllers/contactoController.js"></script>
     <script type="module" src="js/controllers/publicController.js"></script>
   </body>
 </html>

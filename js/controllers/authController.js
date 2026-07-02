@@ -1,17 +1,32 @@
-import { auth } from '../auth.js';
+/**
+ * authController.js
+ * Maneja el submit del formulario de login (login.html)
+ * y del formulario de registro (registro.html).
+ */
 
+import { auth }           from '../auth.js';
+import { isValidEmail }   from '../core/utils.js';
+
+// ── Helpers de UI ─────────────────────────────────────────────────
+
+/**
+ * Muestra un mensaje de alerta dentro de `container`.
+ * @param {HTMLElement} container
+ * @param {string}      message   - Puede contener HTML.
+ * @param {'success'|'error'} type
+ */
 function showMessage(container, message, type = 'success') {
-  container.innerHTML = `<div class="alert ${type}">${message}</div>`;
+  container.innerHTML = message
+    ? `<div class="alert ${type}">${message}</div>`
+    : '';
 }
 
-function validEmail(email) {
-  return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
-}
+// ── Login ─────────────────────────────────────────────────────────
 
 function handleLoginSubmit(event) {
   event.preventDefault();
 
-  const form = event.currentTarget;
+  const form     = event.currentTarget;
   const alertBox = document.getElementById('loginAlert');
   const { email, password } = Object.fromEntries(new FormData(form));
 
@@ -22,28 +37,28 @@ function handleLoginSubmit(event) {
     return;
   }
 
-  if (!validEmail(email)) {
+  if (!isValidEmail(email)) {
     showMessage(alertBox, 'Ingresa un email válido.', 'error');
     return;
   }
 
   try {
     auth.login({ email, password });
-    showMessage(alertBox, 'Has iniciado sesión correctamente. Redirigiendo...', 'success');
-    window.setTimeout(() => {
-      window.location.href = 'index.html';
-    }, 900);
+    showMessage(alertBox, 'Sesión iniciada. Redirigiendo...', 'success');
+    setTimeout(() => { window.location.href = 'index.html'; }, 900);
   } catch (error) {
     showMessage(alertBox, error.message, 'error');
   }
 }
 
+// ── Registro ──────────────────────────────────────────────────────
+
 function handleRegisterSubmit(event) {
   event.preventDefault();
 
-  const form = event.currentTarget;
+  const form     = event.currentTarget;
   const alertBox = document.getElementById('registerAlert');
-  const values = Object.fromEntries(new FormData(form));
+  const values   = Object.fromEntries(new FormData(form));
 
   showMessage(alertBox, '');
 
@@ -52,7 +67,7 @@ function handleRegisterSubmit(event) {
     return;
   }
 
-  if (!validEmail(values.email)) {
+  if (!isValidEmail(values.email)) {
     showMessage(alertBox, 'Ingresa un email válido.', 'error');
     return;
   }
@@ -64,26 +79,21 @@ function handleRegisterSubmit(event) {
 
   try {
     auth.register({ name: values.name, email: values.email, password: values.password });
-    showMessage(alertBox, 'Cuenta creada con éxito. Redirigiendo a la página principal...', 'success');
-    window.setTimeout(() => {
-      window.location.href = 'index.html';
-    }, 900);
+    showMessage(alertBox, 'Cuenta creada. Redirigiendo...', 'success');
+    setTimeout(() => { window.location.href = 'index.html'; }, 900);
   } catch (error) {
     showMessage(alertBox, error.message, 'error');
   }
 }
 
+// ── Inicialización ────────────────────────────────────────────────
+
 function init() {
-  const loginForm = document.getElementById('loginForm');
+  const loginForm    = document.getElementById('loginForm');
   const registerForm = document.getElementById('registerForm');
 
-  if (loginForm) {
-    loginForm.addEventListener('submit', handleLoginSubmit);
-  }
-
-  if (registerForm) {
-    registerForm.addEventListener('submit', handleRegisterSubmit);
-  }
+  if (loginForm)    loginForm.addEventListener('submit', handleLoginSubmit);
+  if (registerForm) registerForm.addEventListener('submit', handleRegisterSubmit);
 }
 
 init();

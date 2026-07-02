@@ -1,48 +1,43 @@
+/**
+ * reservasView.js
+ * Vista del panel para crear reservas.
+ * Incluye formulario reactivo con vista previa y enlaces a Google Calendar / Outlook.
+ */
+
 import { pasajerosService } from '../services/pasajerosService.js';
-import { vuelosService } from '../services/vuelosService.js';
-import { reservasService } from '../services/reservasService.js';
+import { vuelosService }    from '../services/vuelosService.js';
+import { reservasService }  from '../services/reservasService.js';
+import { parseDateTime, toGoogleCalendarDate } from '../core/utils.js';
 
-function normalizeDateTime(fechaHora) {
-  const normalized = fechaHora.includes('T') ? fechaHora : fechaHora.replace(' ', 'T');
-  return new Date(normalized);
-}
-
-function formatDateForGoogle(date) {
-  return date.toISOString().replace(/[-:\.]/g, '').slice(0, 15) + 'Z';
-}
+// ── Helpers de calendario ─────────────────────────────────────────
 
 function buildGoogleCalendarUrl({ title, details, location, start, end }) {
-  const base = 'https://calendar.google.com/calendar/render?action=TEMPLATE';
   const params = new URLSearchParams({
-    text: title,
+    text:     title,
     details,
     location,
-    dates: `${formatDateForGoogle(start)}/${formatDateForGoogle(end)}`,
+    dates: `${toGoogleCalendarDate(start)}/${toGoogleCalendarDate(end)}`,
   });
-  return `${base}&${params.toString()}`;
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&${params}`;
 }
 
 function buildOutlookCalendarUrl({ title, details, location, start, end }) {
-  const base = 'https://outlook.live.com/owa/?path=/calendar/action/compose';
   const params = new URLSearchParams({
-    subject: title,
-    body: details,
+    subject:  title,
+    body:     details,
     location,
-    startdt: start.toISOString(),
-    enddt: end.toISOString(),
+    startdt:  start.toISOString(),
+    enddt:    end.toISOString(),
   });
-  return `${base}&${params.toString()}`;
+  return `https://outlook.live.com/owa/?path=/calendar/action/compose&${params}`;
 }
 
 function renderCalendarLinks(container, pasajero, vuelo, claseAsiento) {
-  const startDate = normalizeDateTime(vuelo.fechaHora);
-  const endDate = new Date(startDate.getTime() + 1000 * 60 * 60 * 2);
-  const title = `Reserva Aerolínea: ${vuelo.origen} → ${vuelo.destino}`;
-  const details = `Pasajero: ${pasajero.nombre} ${pasajero.apellido}\nEmail: ${pasajero.email}\nClase: ${claseAsiento || 'N/A'}`;
+  const start    = parseDateTime(vuelo.fechaHora);
+  const end      = new Date(start.getTime() + 1000 * 60 * 60 * 2);   // +2 h
+  const title    = `Reserva Aerolínea: ${vuelo.origen} → ${vuelo.destino}`;
+  const details  = `Pasajero: ${pasajero.nombre} ${pasajero.apellido}\nEmail: ${pasajero.email}\nClase: ${claseAsiento || 'N/A'}`;
   const location = `${vuelo.origen} → ${vuelo.destino}`;
-
-  const googleLink = buildGoogleCalendarUrl({ title, details, location, start: startDate, end: endDate });
-  const outlookLink = buildOutlookCalendarUrl({ title, details, location, start: startDate, end: endDate });
 
   let links = container.querySelector('.calendar-sync');
   if (!links) {
@@ -53,11 +48,21 @@ function renderCalendarLinks(container, pasajero, vuelo, claseAsiento) {
 
   links.innerHTML = `
     <div class="card-actions">
-      <a class="primary-btn" href="${googleLink}" target="_blank" rel="noopener noreferrer">Agregar a Google Calendar</a>
-      <a class="secondary-btn" href="${outlookLink}" target="_blank" rel="noopener noreferrer">Agregar a Outlook</a>
+      <a class="primary-btn"
+         href="${buildGoogleCalendarUrl({ title, details, location, start, end })}"
+         target="_blank" rel="noopener noreferrer">
+        Agregar a Google Calendar
+      </a>
+      <a class="secondary-btn"
+         href="${buildOutlookCalendarUrl({ title, details, location, start, end })}"
+         target="_blank" rel="noopener noreferrer">
+        Agregar a Outlook
+      </a>
     </div>
   `;
 }
+
+// ── Vista principal ───────────────────────────────────────────────
 
 export async function renderReservasView(container, state) {
   container.innerHTML = `
@@ -73,12 +78,14 @@ export async function renderReservasView(container, state) {
     </div>
   `;
 
-  const alert = container.querySelector('#reservaAlert');
+  const alertEl       = container.querySelector('#reservaAlert');
   const formContainer = container.querySelector('#reservaFormContainer');
-  await renderReservaForm(formContainer, alert, state);
+  await renderReservaForm(formContainer, alertEl, state);
 }
 
-async function renderReservaForm(formContainer, alert, state) {
+// ── Formulario de reserva ─────────────────────────────────────────
+
+async function renderReservaForm(formContainer, alertEl, state) {
   try {
     const [pasajeros, vuelos] = await Promise.all([
       pasajerosService.listar(),
@@ -95,93 +102,86 @@ async function renderReservaForm(formContainer, alert, state) {
           <label>Pasajero
             <select name="pasajeroId" required>
               <option value="">Seleccione un pasajero</option>
-              ${pasajeros
-                .map((p) => `<option value="${p.id}">${p.nombre} ${p.apellido}</option>`)
-                .join('')}
+              ${pasajeros.map((p) => `<option value="${p.id}">${p.nombre} ${p.apellido}</option>`).join('')}
             </select>
           </label>
           <label>Vuelo
             <select name="vueloId" required>
               <option value="">Seleccione un vuelo</option>
-              ${vuelos
-                .map((v) => `<option value="${v.id}">${v.origen} → ${v.destino} · ${v.fechaHora}</option>`)
-                .join('')}
+              ${vuelos.map((v) => `<option value="${v.id}">${v.origen} → ${v.destino} · ${v.fechaHora}</option>`).join('')}
             </select>
           </label>
         </div>
         <label>Clase de asiento
           <select name="claseAsiento" required>
-            <option value="ECONOMICA">ECONOMICA</option>
+            <option value="ECONOMICA">ECONÓMICA</option>
             <option value="EJECUTIVA">EJECUTIVA</option>
             <option value="PRIMERA_CLASE">PRIMERA CLASE</option>
           </select>
         </label>
         <div class="flex-actions">
-          <button type="submit" class="primary-btn">Crear reserva</button>
-          <button type="button" id="clearReservaForm" class="secondary-btn">Limpiar</button>
+          <button type="submit"  class="primary-btn">Crear reserva</button>
+          <button type="button"  class="secondary-btn" id="clearReservaForm">Limpiar</button>
         </div>
       </form>
     `;
 
-    const form = formContainer.querySelector('#reservaForm');
-    const preview = formContainer.querySelector('#reservaPreview');
+    const form     = formContainer.querySelector('#reservaForm');
+    const preview  = formContainer.querySelector('#reservaPreview');
     const clearBtn = formContainer.querySelector('#clearReservaForm');
 
-    function actualizarPreview() {
-      const pasajeroId = form.pasajeroId.value;
-      const vueloId = form.vueloId.value;
-      const clase = form.claseAsiento.value;
-      const pasajero = pasajeros.find((item) => String(item.id) === pasajeroId);
-      const vuelo = vuelos.find((item) => String(item.id) === vueloId);
+    // Vista previa reactiva
+    function updatePreview() {
+      const pasajero = pasajeros.find((p) => String(p.id) === form.pasajeroId.value);
+      const vuelo    = vuelos.find((v)    => String(v.id) === form.vueloId.value);
+      const clase    = form.claseAsiento.value;
 
-      if (!pasajero && !vuelo && !clase) {
+      if (!pasajero && !vuelo) {
         preview.innerHTML = '<h4>Resumen rápido</h4><p>Selecciona un pasajero, un vuelo y una clase para ver el detalle aquí.</p>';
         return;
       }
 
       preview.innerHTML = `
         <h4>Resumen rápido</h4>
-        <p><strong>Pasajero:</strong> ${pasajero ? `${pasajero.nombre} ${pasajero.apellido}` : 'Sin seleccionar'}</p>
-        <p><strong>Vuelo:</strong> ${vuelo ? `${vuelo.origen} → ${vuelo.destino}` : 'Sin seleccionar'}</p>
-        <p><strong>Clase:</strong> ${clase || 'Sin seleccionar'}</p>
+        <p><strong>Pasajero:</strong> ${pasajero ? `${pasajero.nombre} ${pasajero.apellido}` : '—'}</p>
+        <p><strong>Vuelo:</strong>    ${vuelo    ? `${vuelo.origen} → ${vuelo.destino}` : '—'}</p>
+        <p><strong>Clase:</strong>    ${clase    || '—'}</p>
       `;
     }
 
     ['pasajeroId', 'vueloId', 'claseAsiento'].forEach((name) => {
-      form[name].addEventListener('change', actualizarPreview);
-      form[name].addEventListener('input', actualizarPreview);
+      form[name].addEventListener('change', updatePreview);
     });
 
     clearBtn.addEventListener('click', () => {
       form.reset();
-      actualizarPreview();
+      updatePreview();
     });
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const payload = Object.fromEntries(new FormData(form));
-      payload.pasajeroId = Number(payload.pasajeroId);
-      payload.vueloId = Number(payload.vueloId);
 
-      const selectedPasajero = pasajeros.find((item) => item.id === payload.pasajeroId);
-      const selectedVuelo = vuelos.find((item) => item.id === payload.vueloId);
+      const payload        = Object.fromEntries(new FormData(form));
+      payload.pasajeroId   = Number(payload.pasajeroId);
+      payload.vueloId      = Number(payload.vueloId);
+      const selPasajero    = pasajeros.find((p) => p.id === payload.pasajeroId);
+      const selVuelo       = vuelos.find((v)    => v.id === payload.vueloId);
 
       try {
         const result = await reservasService.crear(payload);
-        alert.innerHTML = `
-          <div class="alert success">
-            Reserva creada correctamente. ID: ${result.resumen.reservaId}
-          </div>
-        `;
-        if (selectedPasajero && selectedVuelo) {
-          renderCalendarLinks(formContainer, selectedPasajero, selectedVuelo, payload.claseAsiento);
+        alertEl.innerHTML = `<div class="alert success">Reserva creada. ID: ${result.resumen.reservaId}</div>`;
+
+        if (selPasajero && selVuelo) {
+          renderCalendarLinks(formContainer, selPasajero, selVuelo, payload.claseAsiento);
         }
+
         form.reset();
-        actualizarPreview();
+        updatePreview();
       } catch (error) {
-        alert.innerHTML = `<div class="alert error">${error.message}</div>`;
+        alertEl.innerHTML = `<div class="alert error">${error.message}</div>`;
       }
     });
+
   } catch (error) {
     formContainer.innerHTML = `<div class="alert error">${error.message}</div>`;
   }

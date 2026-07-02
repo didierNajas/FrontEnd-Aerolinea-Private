@@ -3,51 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aerolínea - Gestión Operativa</title>
+    <title>Aerolínea - Inicio</title>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath d='M12 40l10-8h10l-8 14h8l12-18 10 8 8-4-6-10-18 10-12-10-8 4z' fill='%234f8cff'/%3E%3C/svg%3E" />
+
+    <!-- Tipografía -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Estilos (base → layout → components → panel → animations) -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="app-shell">
-      <header class="topnav">
-        <div class="brand">
-          <div class="brand-icon" onclick="window.location.href='index.html'" style="cursor:pointer;">✈</div>
-          <div>
-            <h1>Aerolínea</h1>
-            <p>Viajes y servicios profesionales</p>
-          </div>
-        </div>
 
-        <div class="topnav-actions">
-          <a href="login.html" class="ghost-btn">Iniciar sesión</a>
-          <a href="registro.html" class="secondary-btn">Registrarse</a>
-        </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">☰</button>
-      </header>
+      <!--
+        El navbar se inyecta dinámicamente por navbar.js (ver scripts al final).
+        authHeader.js rellena los botones de sesión según el usuario activo.
+      -->
 
+      <!-- ── Contenido principal ─────────────────────────────────── -->
       <main class="main-content">
+
+        <!-- Hero -->
         <section class="hero-panel">
           <div>
             <p class="eyebrow">Bienvenido</p>
             <h1>Tu aerolínea profesional para viajes y experiencias completas</h1>
-            <p class="muted">Explora servicios aéreos, paquetes, ofertas y soporte corporativo con una experiencia limpia y administrable.</p>
+            <p class="muted">
+              Explora servicios aéreos, paquetes, ofertas y soporte corporativo
+              con una experiencia limpia y administrable.
+            </p>
             <div class="card-actions">
-              <a href="ofertas.html" class="primary-btn">Buscar vuelos</a>
+              <a href="ofertas.html"  class="primary-btn">Buscar vuelos</a>
               <a href="contacto.html" class="secondary-btn">Contactar asistencia</a>
             </div>
           </div>
+
           <div class="hero-visual">
-            <img src="https://placehold.co/800x380?text=Aerolínea+Premium&bg=112c4a&fg=ffffff" alt="Aerolínea premium" />
+            <img
+              src="https://placehold.co/800x380?text=Aerolínea+Premium&bg=112c4a&fg=ffffff"
+              alt="Vista de aerolínea premium"
+            />
           </div>
+
+          <!-- Avión decorativo animado (oculto para lectores de pantalla) -->
+          <span class="hero-plane" aria-hidden="true">✈</span>
         </section>
 
-        <section class="view-container sample-grid">
+        <!-- Tarjetas de servicios destacados -->
+        <section class="view-container sample-grid" aria-label="Servicios destacados">
           <article class="sample-card">
             <img src="https://placehold.co/640x360?text=Alojamientos&bg=132c4a&fg=ffffff" alt="Alojamientos" />
             <h3>Alojamientos seleccionados</h3>
@@ -56,6 +63,7 @@
               <a href="alojamientos.html" class="primary-btn">Ver alojamientos</a>
             </div>
           </article>
+
           <article class="sample-card">
             <img src="https://placehold.co/640x360?text=Vuelos&bg=102d47&fg=ffffff" alt="Vuelos" />
             <h3>Vuelos confiables</h3>
@@ -64,6 +72,7 @@
               <a href="vuelos.html" class="primary-btn">Ver vuelos</a>
             </div>
           </article>
+
           <article class="sample-card">
             <img src="https://placehold.co/640x360?text=Paquetes&bg=0f2844&fg=ffffff" alt="Paquetes" />
             <h3>Paquetes completos</h3>
@@ -75,22 +84,23 @@
         </section>
 
         <footer class="page-footer">
-          <p>© 2026 Aerolínea Ejemplo. Inicio independiente con navegación superior para todos los servicios.</p>
+          <p>© 2026 Aerolínea Ejemplo · Todos los servicios disponibles desde la navegación superior.</p>
         </footer>
       </main>
-    </div>
+
+    </div><!-- /.app-shell -->
+
+    <!--
+      Orden de carga de scripts:
+        1. navbar.js         → inyecta el topnav y activa el toggle hamburger + scroll reveal
+        2. authHeader.js     → rellena los botones de sesión según el usuario activo
+        3. publicController.js → comportamientos interactivos de botones públicos
+    -->
+    <script type="module">
+      import { injectNavbar } from './js/core/navbar.js';
+      injectNavbar('');  // index no tiene ningún item activo en el nav
+    </script>
     <script type="module" src="js/authHeader.js"></script>
     <script type="module" src="js/controllers/publicController.js"></script>
-    <script>
-      const toggle = document.getElementById('navToggle');
-      const nav = document.getElementById('mainNav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-          const open = nav.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', open);
-          toggle.textContent = open ? '✕' : '☰';
-        });
-      }
-    </script>
   </body>
 </html>
