@@ -41,7 +41,7 @@ function resolveApiBaseUrl() {
     }
   }
 
-  // Limpia override invalido guardado en produccion.
+  // Limpia override inválido guardado en produccion.
   if (!isLocalFrontend() && localStorage.getItem(STORAGE_KEY)) {
     localStorage.removeItem(STORAGE_KEY);
   }
