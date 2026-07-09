@@ -132,11 +132,13 @@ La autenticación del panel es **local** (`auth.js` + `localStorage`); los datos
 | Local (`localhost`) | `http://localhost:8080` |
 | GitHub Pages | `https://proyectovuelosspringboot.onrender.com` |
 
-También puedes sobreescribir en consola del navegador:
+También puedes sobreescribir en consola del navegador (solo en desarrollo local):
 
 ```js
 localStorage.setItem('aerolinea-api-base-url', 'https://proyectovuelosspringboot.onrender.com');
 ```
+
+> **Importante:** No guardes `http://localhost:8080` en `localStorage` mientras pruebas en GitHub Pages. Los navegadores bloquean peticiones de sitios HTTPS públicos hacia `localhost` (Private Network Access).
 
 ---
 
