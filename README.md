@@ -1,4 +1,4 @@
-# Bienvenido - Plataforma de Gestión Aeronáutica
+# Bienvenido - Plataforma de Gestión Aerolinea
 
 ## Descripción general
 
